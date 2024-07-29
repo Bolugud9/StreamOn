@@ -1,0 +1,30 @@
+﻿@model Videos.Models.Account
+
+@{
+    ViewData["Title"] = "Registration";
+}
+
+<div class="login-container">
+    <div class="login center">
+        <div class="login-btn-container">
+            <a asp-area="" asp-controller="Account" asp-action="Login" class="btn">Sign in</a>
+            <a class="btn active-btn"><b>Sign up</b></a>
+        </div>
+
+        <form class="form" asp-action="Registration" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input asp-for="email" class="input" placeholder="E-mail address" type="email" name="email" />
+            <span asp-validation-for="email" class="text-danger"></span>
+            <input asp-for="password" class="input" placeholder="Password" type="password" name="password" />
+            <span asp-validation-for="password" class="text-danger"></span>
+            <input type="submit" value="Sign up" />
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

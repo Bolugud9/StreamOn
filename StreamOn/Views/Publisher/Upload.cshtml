@@ -1,0 +1,63 @@
+﻿@model Videos.Models.Movie
+
+@{
+    Layout = "~/Views/Shared/UserLoginLayout.cshtml";
+    ViewData["Title"] = "Upload";
+}
+
+<div class="text-center">
+    <div class="upload-container">
+        <form class="form get-started" asp-action="Upload" method="post" asp-controller="Publisher" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <input asp-for="MovieName" class="input" placeholder="Movie Name" type="text" name="MovieName" />
+            <span asp-validation-for="MovieName" class="text-danger"></span>
+
+            <input asp-for="MovieDescription" class="input" placeholder="Movie Description" type="text" name="MovieDescription" />
+            <span asp-validation-for="MovieDescription" class="text-danger"></span>
+
+
+            <label asp-for="VideoFile" class="form-label">Select Video</label>
+            <input class="form-control" id="formFile" asp-for="VideoFile" type="file" name="VideoFile" accept="video/mp4" size="10485760">
+            <span asp-validation-for="VideoFile" class="text-danger"></span>
+
+
+            <label asp-for="ImageFile" class="form-label">Select Image</label>
+            <input class="form-control" id="formFile" asp-for="ImageFile" type="file" name="ImageFile" accept="image/jpg,image/png,image/jpeg">
+            <span asp-validation-for="ImageFile" class="text-danger"></span>
+
+
+            <label asp-for="ReleaseDate" class="form-label">Release Date</label>
+            <input class="form-control" id="formFile" placeholder="Release Date" asp-for="ReleaseDate" type="date" name="ReleaseDate">
+            <span asp-validation-for="ReleaseDate" class="text-danger"></span>
+
+            <label asp-for="genre" class="form-label">Genre</label>
+            <select class="form-control" asp-for="genre" name="genre">
+                <option value="Action" selected>Action</option>
+                <option value="Adventure">Adventure</option>
+                <option value="Comedy">Comedy</option>
+                <option value="Drama">Drama</option>
+                <option value="Horror">Horror</option>
+                <option value="Sci_Fi">Sci_Fi</option>
+                <option value="Fantasy">Fantasy</option>
+                <option value="Thriller">Thriller</option>
+                <option value="Mystery">Mystery</option>
+                <option value="Crime">Crime</option>
+                <option value="Romance">Romance</option>
+                <option value="Family">Family</option>
+                <option value="Animation">Animation</option>
+            </select>
+            <span asp-validation-for="genre" class="text-danger"></span>
+
+            <input type="submit" value="Upload" />
+        </form>
+    </div>
+
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

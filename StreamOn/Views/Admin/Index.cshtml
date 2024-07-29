@@ -1,0 +1,55 @@
+﻿@model Videos.Models.AdminMovies
+
+@{
+    Layout = "~/Views/Shared/UserLoginLayout.cshtml";
+
+    ViewData["Title"] = "User";
+}
+
+
+    @if (Model.unApprovedMovies?.Count > 0)
+    {
+        <h2 style="width: fit-content; color: white; border-bottom: 1px solid #3b3b3b; margin-bottom: 10px; ">Un-Approved</h2>
+        <div class="admin-container">
+            @foreach (var movie in Model.unApprovedMovies)
+            {
+                    <div class="admin-stack-container">
+                        <img src="@Html.DisplayFor(modelItem => movie.ImageLink)" alt="@Html.DisplayFor(modelItem => movie.MovieName)" />
+                        <h3>@movie.MovieName</h3>
+                        <div class="admin-info-container">
+                            <p> <b style="color:red;">Description:</b> @movie.MovieDescription</p>
+                            <hr />
+                            <p> <b style="color:red;">Publisher email:</b> @movie.publisherAccount?.email</p>
+                        </div>
+                        <div class="btns">
+                            <a class="btn btn-danger not-approved" asp-action="VideoInfo" asp-controller="Admin" asp-route-movieId="@movie.MovieId">Details</a>
+                            <a class="btn btn-danger approved-btn" asp-action="PerformApprove" asp-controller="Admin" asp-route-movieId="@movie.MovieId">Approve</a>
+                        </div>
+                    </div>
+            }
+        </div>
+    }
+
+    @if (Model.approvedMovies?.Count > 0)
+    {
+        <h2 style="width:fit-content; color: white; border-bottom: 1px solid #3b3b3b; margin-bottom: 10px; ">Approved</h2>
+        <div class="admin-container">
+            @foreach (var movie in Model.approvedMovies)
+            {
+                <div class="admin-stack-container">
+                    <img src="@Html.DisplayFor(modelItem => movie.ImageLink)" alt="@Html.DisplayFor(modelItem => movie.MovieName)" />
+                    <h3>@movie.MovieName</h3>
+                    <div class="admin-info-container">
+                        <p> <b style="color:red;">Description:</b> @movie.MovieDescription</p>
+                        <hr />
+                        <p> <b style="color:red;">Publisher email:</b> @movie.publisherAccount?.email</p>
+                    </div>
+                    <div class="btns">
+                        <a class="btn btn-primary approved" asp-action="VideoInfo" asp-controller="Admin" asp-route-movieId="@movie.MovieId">Details</a>
+                        <a class="btn btn-danger approved-btn" asp-action="PerformApprove" asp-controller="Admin" asp-route-movieId="@movie.MovieId">Un-Approve</a>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>

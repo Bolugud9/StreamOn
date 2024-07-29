@@ -1,0 +1,32 @@
+﻿@model Videos.Models.UserMovies
+
+@{
+    Layout = "~/Views/Shared/UserLoginLayout.cshtml";
+    ViewData["Title"] = "User";
+}
+
+<div class="container ">
+    @if (Model.newMovies.Count > 0)
+    {
+        <div class="movie-stack-container">
+            @foreach (var item in Model.newMovies)
+            {
+                <a asp-action="Watch" asp-controller="User" asp-route-movieId="@item.MovieId" class="movie-stack">
+                    <img src="@item.ImageLink" />
+                </a>
+                }
+        </div>
+    }
+    @if (Model.watchedMovies.Count > 0)
+    {
+        <h4 style="color:white">Watch again</h4>
+        <div class="movie-stack-container">
+            @foreach (var item in Model.watchedMovies)
+            {
+                <a asp-action="Watch" asp-controller="User" asp-route-movieId="@item.MovieId" class="movie-stack">
+                    <img src="@item.ImageLink" />
+                </a>
+            }
+        </div>
+    }
+</div>

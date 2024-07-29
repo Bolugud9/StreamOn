@@ -1,0 +1,25 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 25.0.1705.4
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Netflix", "StreamOn\StreamOn.csproj", "{EBEE688D-3BFE-4F0E-B463-102F8AFDEA5C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EBEE688D-3BFE-4F0E-B463-102F8AFDEA5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBEE688D-3BFE-4F0E-B463-102F8AFDEA5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBEE688D-3BFE-4F0E-B463-102F8AFDEA5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBEE688D-3BFE-4F0E-B463-102F8AFDEA5C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7E048CDC-F4D7-46AC-A685-77EDFC73D9B8}
+	EndGlobalSection
+EndGlobal

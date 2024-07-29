@@ -1,0 +1,18 @@
+﻿@model Videos.Models.Movie
+@{
+    Layout = "~/Views/Shared/UserLoginLayout.cshtml";
+
+    ViewData["Title"] = "Video Info";
+}
+
+<div class="container">
+    <div style="display: flex; justify-content:center; align-items:center;">
+        <div style="display:flex;">
+            <h2 style="align-self: center; margin-right: 10px; text-align: center; color: white">@Model.MovieName</h2>
+            <a asp-action="PerformApprove" asp-controller="Admin" asp-route-movieId="@Model.MovieId" class="btn btn-danger @(Model.approved ? "details-approved" : "details-unapproved")">@(Model.approved ? "Un-Approve" : "Approve")</a>
+        </div>
+    </div>
+    <video controls>
+        <source src="../@Model.MovieLink" />
+    </video>
+</div>

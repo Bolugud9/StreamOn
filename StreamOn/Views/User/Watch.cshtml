@@ -1,0 +1,24 @@
+﻿@model Videos.Models.Movie
+
+@{
+    Layout = "~/Views/Shared/UserLoginLayout.cshtml";
+
+    ViewData["Title"] = "Video Info";
+}
+
+
+<div class="container">
+    <div style="display: flex; justify-content:center; align-items:center;">
+        <div style="display:flex;">
+            <h2 style="align-self: center; margin-right: 10px; text-align: center; color: white">@Model.MovieName</h2>
+        </div>
+    </div>
+    <video controls>
+        <source src="../@Model.MovieLink" />
+    </video>
+    <input type="hidden" id="like-movie-id" value="@Model.MovieId">
+    <div style="padding:10px 0;">
+        <button class="btn btn-primary" type="button" id="likeBtn">👍</button>
+        <button class="btn btn-danger" type="button" id="dislikeBtn">👎</button>
+    </div>
+</div>
